@@ -1,6 +1,6 @@
 package com.example.customlayoutlistview;
 
-public class Employee {
+public class Foods {
     private String id;
     private String foodName;
     private boolean isChecked;
@@ -9,7 +9,7 @@ public class Employee {
     private String foodLocaltion;
     private int imgFood;
 
-    public Employee(String id, String foodName, boolean isChecked, String price, String foodLink, String foodLocaltion, int imgFood) {
+    public Foods(String id, String foodName, boolean isChecked, String price, String foodLink, String foodLocaltion, int imgFood) {
         this.id = id;
         this.foodName = foodName;
         this.isChecked = isChecked;

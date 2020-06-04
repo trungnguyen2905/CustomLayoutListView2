@@ -19,7 +19,7 @@ import java.util.Locale;
 
 public class MainActivity extends Activity {
 
-    ArrayList<Employee> arrEmployee =new ArrayList<Employee>();
+    ArrayList<Foods> arrFoods =new ArrayList<Foods>();
     //Sử dụng MyArrayAdapter thay thì ArrayAdapter
     MyArrayAdapter adapter=null;
     NewMyArrayAdapter adapter1=null;
@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
     StringBuilder message;
 
     //mang luu mon
-    ArrayList<Employee> arrMonChon = new ArrayList<>();
+    ArrayList<Foods> arrMonChon = new ArrayList<>();
 
 
     Button btnDatMon;
@@ -43,18 +43,18 @@ public class MainActivity extends Activity {
         btnRemoveAll=(ImageButton) findViewById(R.id.btndelete);
         btnDatMon= findViewById(R.id.btndatmon);
         lvMonan=(ListView) findViewById(R.id.lvmonan);
-        arrEmployee=new ArrayList<Employee>();
-        arrEmployee.add(new Employee("1","Gà sốt tiêu đen",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.tieuden));
-        arrEmployee.add(new Employee("2","Gà nướng sốt cam",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.sotcam));
-        arrEmployee.add(new Employee("3","Gà quay",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.quay));
-        arrEmployee.add(new Employee("4","Gà nướng ngũ vị",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.nguvi));
-        arrEmployee.add(new Employee("5","Gà nướng muối ớt",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.muoiot));
-        arrEmployee.add(new Employee("6","Lẩu gà ớt hiểm",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.laugaothiem));
-        arrEmployee.add(new Employee("7","Gà lắc hongkong",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","lc7https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.lachongkong));
+        arrFoods=new ArrayList<Foods>();
+        arrFoods.add(new Foods("1","Gà sốt tiêu đen",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.tieuden));
+        arrFoods.add(new Foods("2","Gà nướng sốt cam",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.sotcam));
+        arrFoods.add(new Foods("3","Gà quay",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.quay));
+        arrFoods.add(new Foods("4","Gà nướng ngũ vị",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.nguvi));
+        arrFoods.add(new Foods("5","Gà nướng muối ớt",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.muoiot));
+        arrFoods.add(new Foods("6","Lẩu gà ớt hiểm",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.laugaothiem));
+        arrFoods.add(new Foods("7","Gà lắc hongkong",false,"10.000","https://www.foody.vn/thuong-hieu/lau-ga-109?c=ho-chi-minh","lc7https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599171,106.6822583,15z/data=!4m5!3m4!1s0x0:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583",R.drawable.lachongkong));
         adapter=new MyArrayAdapter(
                 this,
                 R.layout.my_item_layout,// lấy custom layout
-                arrEmployee/*thiết lập data source*/);
+                arrFoods/*thiết lập data source*/);
         lvMonan.setAdapter(adapter);//gán Adapter vào Lisview
 
 
@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
 
     private void xulydatmon() {
 
-       for (Employee item:arrEmployee)
+       for (Foods item:arrFoods)
        {
            if(item.isChecked()==true)
            {
@@ -87,7 +87,7 @@ public class MainActivity extends Activity {
 
     public void xulyXoa()
     {
-        for (Employee item:arrEmployee)
+        for (Foods item:arrFoods)
         {
             if(item.isChecked()==true)
             {
@@ -107,10 +107,10 @@ public class MainActivity extends Activity {
         TextView txtTongtien=dialog.findViewById(R.id.txtTongtien);
         ListView lvchonmon = dialog.findViewById(R.id.lvmonchon);
 
-        ArrayList<Employee> arrMonDaChon = new ArrayList<>();
+        ArrayList<Foods> arrMonDaChon = new ArrayList<>();
         int i =0;
         int tongtien=0;
-        for (Employee item:arrEmployee)
+        for (Foods item:arrFoods)
         {
             if(item.isChecked()==true)
             {
@@ -127,7 +127,7 @@ public class MainActivity extends Activity {
          adapter1 = new NewMyArrayAdapter(this,R.layout.my_item,arrMonDaChon);
         lvchonmon.setAdapter(adapter1);
          message=new StringBuilder("Các món đã chọn: \n ");
-        for(Employee item: arrMonDaChon){
+        for(Foods item: arrMonDaChon){
             message.append(item.toString()+"\n");
         }
         message.append("Đợi nhà hàng 15phut");

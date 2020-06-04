@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -19,14 +18,14 @@ import androidx.appcompat.content.res.AppCompatResources;
 
 import java.util.ArrayList;
 
-public class MyArrayAdapter extends ArrayAdapter<Employee> {
+public class MyArrayAdapter extends ArrayAdapter<Foods> {
 
     Activity context = null;
-    ArrayList<Employee> myArray = null;
+    ArrayList<Foods> myArray = null;
     int layoutId ;
     CheckBox checkBox;
 
-    public MyArrayAdapter(Activity context, int layoutId, ArrayList<Employee>arr){
+    public MyArrayAdapter(Activity context, int layoutId, ArrayList<Foods>arr){
         super(context,layoutId,arr);
         this.context = context;
         this.layoutId = layoutId;
@@ -56,31 +55,31 @@ public class MyArrayAdapter extends ArrayAdapter<Employee> {
         convertView = inflater.inflate(layoutId, null);
 
 
-        final Employee emp=myArray.get(position);
+        final Foods foods=myArray.get(position);
 
         final TextView txtdisplay = (TextView) convertView.findViewById(R.id.txtitem);
-        txtdisplay.setTag(emp.getFoodLink());
-        txtdisplay.setText(emp.toString());
+        txtdisplay.setTag(foods.getFoodLink());
+        txtdisplay.setText(foods.toString());
         txtdisplay.setOnClickListener(foodOnclick);
         checkBox=convertView.findViewById(R.id.chkitem);
-        checkBox.setChecked(emp.isChecked());
+        checkBox.setChecked(foods.isChecked());
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    emp.setChecked(true);
+                    foods.setChecked(true);
                 }else{
-                    emp.setChecked(false);
+                    foods.setChecked(false);
                 }
             }
         });
-         txtdisplay.setText(emp.toString());
+         txtdisplay.setText(foods.toString());
 
 
         final ImageView imgitem=(ImageView) convertView.findViewById(R.id.imgitem);
-        Drawable drawable =   AppCompatResources.getDrawable(context, emp.getImgFood());
+        Drawable drawable =   AppCompatResources.getDrawable(context, foods.getImgFood());
         imgitem.setImageDrawable(drawable);
-        imgitem.setTag(emp.getFoodLocaltion());
+        imgitem.setTag(foods.getFoodLocaltion());
         imgitem.setOnClickListener(foodOnclick);
 
     return convertView;
